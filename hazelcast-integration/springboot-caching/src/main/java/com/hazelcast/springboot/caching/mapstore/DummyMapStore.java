@@ -1,6 +1,7 @@
 package com.hazelcast.springboot.caching.mapstore;
 
 import com.hazelcast.core.MapStore;
+import org.slf4j.Logger;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -9,35 +10,39 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 public class DummyMapStore implements MapStore<Integer, String> {
+    private static final Logger log = getLogger(DummyMapStore.class);
     private final DummyDatabase database = new DummyDatabase();
 
     public void store(Integer key, String value) {
-        System.out.println("Informational: store called");
+        log.info("store k: {}, v: {}", key, value);
         database.store(key, value);
     }
 
+    //todo optimize
     public void storeAll(Map<Integer, String> entries) {
-        System.out.println("Informational: storeAll called");
+        log.info("storeAll entries: {}", entries);
         for (Map.Entry<Integer, String> entry : entries.entrySet()) {
             store(entry.getKey(), entry.getValue());
         }
     }
 
     public void delete(Integer key) {
-        System.out.println("Informational: delete called");
+        log.info("delete for key: {}",key);
         database.remove(key);
     }
 
     public void deleteAll(Collection<Integer> keys) {
-        System.out.println("Informational: deleteAll called");
+        log.info("deleteAll for keys: {}", keys);
         for (Integer key : keys) {
             delete(key);
         }
     }
 
     public String load(Integer key) {
-        System.out.println("Informational: load called");
+        log.info("load for key: {}", key);
         // Before returning the value we want to sleep to
         // simulate a slow database
         sleep(250);
@@ -46,8 +51,9 @@ public class DummyMapStore implements MapStore<Integer, String> {
         return database.select(key);
     }
 
+    //todo optimize
     public Map<Integer, String> loadAll(Collection<Integer> keys) {
-        System.out.println("Informational: loadAll called");
+        log.info("loadAll called for keys: {}", keys);
         Map<Integer, String> result = new HashMap<>();
         for (Integer key : keys) {
             result.put(key, load(key));
@@ -55,8 +61,9 @@ public class DummyMapStore implements MapStore<Integer, String> {
         return result;
     }
 
+    //loading all data existing in Database. Pre-populating cache
     public Iterable<Integer> loadAllKeys() {
-        System.out.println("Informational: loadAllKeys called");
+        log.info("loadAllKeys");
         // Can be used to pre-populate known keys
         return Arrays.stream(database.selectKeys()).mapToObj(i -> i).collect(Collectors.toList());
     }
