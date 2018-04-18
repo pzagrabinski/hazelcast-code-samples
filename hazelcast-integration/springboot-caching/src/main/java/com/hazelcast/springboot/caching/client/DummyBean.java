@@ -16,7 +16,7 @@
  *
  */
 
-package com.hazelcast.springboot.caching;
+package com.hazelcast.springboot.caching.client;
 
 import java.util.concurrent.TimeUnit;
 

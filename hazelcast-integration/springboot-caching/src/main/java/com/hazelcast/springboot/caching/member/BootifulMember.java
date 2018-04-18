@@ -16,7 +16,7 @@
  *
  */
 
-package com.hazelcast.springboot.caching;
+package com.hazelcast.springboot.caching.member;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,7 +31,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @author Viktor Gamov on 12/26/15.
  *         Twitter: @gamussa
  */
-@SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.BootifulMember")
+@SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.member")
 @EnableCaching
 @EnableAutoConfiguration(exclude = {EmbeddedServletContainerAutoConfiguration.class, WebMvcAutoConfiguration.class})
 public class BootifulMember {

@@ -16,7 +16,7 @@
  *
  */
 
-package com.hazelcast.springboot.caching;
+package com.hazelcast.springboot.caching.client;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
@@ -48,7 +48,7 @@ import static java.lang.System.nanoTime;
  * @author Viktor Gamov on 12/26/15.
  *         Twitter: @gamussa
  */
-@SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.BootifulClient")
+@SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.client")
 @EnableCaching
 @SuppressWarnings("unused")
 public class BootifulClient {
@@ -81,32 +81,5 @@ public class BootifulClient {
         // for client HazelcastInstance LocalMapStatistics will not available
         return HazelcastClient.newHazelcastClient();
         // return Hazelcast.newHazelcastInstance();
-    }
-
-    @RestController
-    static class CityController {
-
-        private static final Logger LOGGER = LoggerFactory.getLogger(CityController.class);
-
-        @Autowired
-        IDummyBean dummy;
-
-        @Autowired
-        HazelcastInstance hazelcastInstance;
-
-        @RequestMapping("/city")
-        public String getCity() {
-            String logFormat = "%s call took %d millis with result: %s";
-            long start1 = nanoTime();
-            String city = dummy.getCity();
-            long end1 = nanoTime();
-            LOGGER.info(format(logFormat, "Rest", TimeUnit.NANOSECONDS.toMillis(end1 - start1), city));
-            return city;
-        }
-
-        @RequestMapping(value = "city/{city}", method = RequestMethod.GET)
-        public String setCity(@PathVariable String city) {
-            return dummy.setCity(city);
-        }
     }
 }
