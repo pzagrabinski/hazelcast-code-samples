@@ -39,11 +39,11 @@ import org.springframework.context.annotation.Profile;
 @SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.client")
 @EnableCaching
 @SuppressWarnings("unused")
-public class BootifulClient {
+public class HzClusterMemberClient {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder()
-                .sources(BootifulClient.class)
+                .sources(HzClusterMemberClient.class)
                 .profiles("client")
                 .run(args);
     }

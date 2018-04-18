@@ -34,12 +34,12 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.member")
 @EnableCaching
 @EnableAutoConfiguration(exclude = {EmbeddedServletContainerAutoConfiguration.class, WebMvcAutoConfiguration.class})
-public class BootifulMember {
+public class HzClusterMember {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder()
                 .profiles("member")
-                .sources(BootifulMember.class)
+                .sources(HzClusterMember.class)
                 .run(args);
     }
 
