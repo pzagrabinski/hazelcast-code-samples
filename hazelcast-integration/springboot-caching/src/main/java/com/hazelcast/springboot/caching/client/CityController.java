@@ -16,14 +16,15 @@ import static java.lang.System.nanoTime;
 
 @RestController
 public class CityController {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(CityController.class);
+    private final HazelcastInstance hazelcastInstance;
+    private final IDummyBean dummy;
 
     @Autowired
-    IDummyBean dummy;
-
-    @Autowired
-    HazelcastInstance hazelcastInstance;
+    public CityController(HazelcastInstance hazelcastInstance, IDummyBean dummy) {
+        this.hazelcastInstance = hazelcastInstance;
+        this.dummy = dummy;
+    }
 
     @RequestMapping("/city")
     public String getCity() {

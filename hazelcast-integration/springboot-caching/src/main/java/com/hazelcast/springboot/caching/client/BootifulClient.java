@@ -21,9 +21,6 @@ package com.hazelcast.springboot.caching.client;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.spring.cache.HazelcastCacheManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cache.CacheManager;
@@ -32,21 +29,12 @@ import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.cache.interceptor.SimpleKeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.String.format;
-import static java.lang.System.nanoTime;
 
 /**
  * Hazelcast Client initialized by Spring Boot auto configuration
  *
  * @author Viktor Gamov on 12/26/15.
- *         Twitter: @gamussa
+ * Twitter: @gamussa
  */
 @SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.client")
 @EnableCaching
