@@ -18,6 +18,8 @@
 
 package com.hazelcast.springboot.caching.member;
 
+import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.core.HazelcastInstance;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration;
@@ -42,6 +44,4 @@ public class HzClusterMember {
                 .sources(HzClusterMember.class)
                 .run(args);
     }
-
-
 }
