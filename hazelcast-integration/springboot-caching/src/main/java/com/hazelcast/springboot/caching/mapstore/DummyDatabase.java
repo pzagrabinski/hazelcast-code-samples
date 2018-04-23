@@ -16,11 +16,18 @@
 
 package com.hazelcast.springboot.caching.mapstore;
 
+import org.slf4j.Logger;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class DummyDatabase {
+    private static final Logger log = getLogger(DummyDatabase.class);
     private final Map<Integer, String> database = new ConcurrentHashMap<>();
+    public AtomicInteger selectCounter = new AtomicInteger(0);
 
     public DummyDatabase() {
         for (int i = 0; i < 20; i++) {
@@ -29,6 +36,7 @@ public class DummyDatabase {
     }
 
     public String select(int key) {
+        log.info("select called: {} times", selectCounter.incrementAndGet());
         return database.get(key);
     }
 
