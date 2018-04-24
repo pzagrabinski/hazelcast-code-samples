@@ -21,12 +21,9 @@ public class DummyMapStore implements MapStore<Integer, String> {
         database.store(key, value);
     }
 
-    //todo optimize
     public void storeAll(Map<Integer, String> entries) {
         log.info("storeAll entries: {}", entries);
-        for (Map.Entry<Integer, String> entry : entries.entrySet()) {
-            store(entry.getKey(), entry.getValue());
-        }
+        database.storeAll(entries);
     }
 
     public void delete(Integer key) {
@@ -51,13 +48,10 @@ public class DummyMapStore implements MapStore<Integer, String> {
         return database.select(key);
     }
 
-    //todo optimize
     public Map<Integer, String> loadAll(Collection<Integer> keys) {
         log.info("loadAll called for keys: {}", keys);
         Map<Integer, String> result = new HashMap<>();
-        for (Integer key : keys) {
-            result.put(key, load(key));
-        }
+        result.putAll(database.loadAllByKey(keys));
         return result;
     }
 

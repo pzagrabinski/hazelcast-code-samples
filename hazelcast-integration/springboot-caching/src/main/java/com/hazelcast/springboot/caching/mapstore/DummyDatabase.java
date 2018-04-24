@@ -18,6 +18,8 @@ package com.hazelcast.springboot.caching.mapstore;
 
 import org.slf4j.Logger;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -50,5 +52,17 @@ public class DummyDatabase {
 
     public int[] selectKeys() {
         return database.keySet().stream().mapToInt(i -> i).toArray();
+    }
+
+    public void storeAll(Map<Integer, String> entries) {
+        database.putAll(entries);
+    }
+
+    public Map<Integer, String> loadAllByKey(Collection<Integer> keys) {
+        Map<Integer, String> map = new HashMap<>();
+        for (Integer key : keys) {
+            map.put(key, database.get(key));
+        }
+        return map;
     }
 }
