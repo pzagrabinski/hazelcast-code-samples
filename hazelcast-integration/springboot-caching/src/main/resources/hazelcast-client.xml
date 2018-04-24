@@ -29,7 +29,7 @@
 
     <network>
         <cluster-members>
-            <address><!-- todo put cluster address here --></address>
+            <address>127.0.0.1</address>
         </cluster-members>
     </network>
 
