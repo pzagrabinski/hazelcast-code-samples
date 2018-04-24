@@ -19,7 +19,7 @@ public class HzClusterMemberTest extends IntegrationBaseTest {
         Cluster cluster = hazelcastInstance.getCluster();
 
         //when
-        Address address = cluster.getLocalMember().getAddress();
+        Address address = null;//todo get cluster address
 
         //then
         assertThat(address).isNotNull();
