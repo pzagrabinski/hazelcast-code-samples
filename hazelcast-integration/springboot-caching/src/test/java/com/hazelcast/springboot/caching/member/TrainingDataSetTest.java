@@ -15,6 +15,19 @@ public class TrainingDataSetTest extends IntegrationBaseTest {
     @Autowired
     HazelcastInstance hazelcastInstance;
 
+
+    @Test
+    public void shouldGetElementsFromDBColdStart() {
+        //given
+        IMap<Integer, String> training = hazelcastInstance.getMap("training");
+
+        //then
+        assertThat(training.get(3)).isEqualTo("value-3");
+        assertThat(training.get(4)).isEqualTo("value-4");
+
+        assertThat(training.get(100_00)).isEqualTo(null);
+    }
+
     @Ignore
     @Test
     public void shouldGetElementsFromTrainingSetForInjectedViaIMap() {
@@ -24,19 +37,6 @@ public class TrainingDataSetTest extends IntegrationBaseTest {
         //then
         assertThat(training.get(1)).isEqualTo("Tom");
         assertThat(training.get(2)).isEqualTo("Jim");
-
-        assertThat(training.get(100_00)).isEqualTo(null);
-    }
-
-    @Ignore
-    @Test
-    public void shouldGetElementsFromDBColdStart() {
-        //given
-        IMap<Integer, String> training = hazelcastInstance.getMap("training");
-
-        //then
-        assertThat(training.get(3)).isEqualTo("value-3");
-        assertThat(training.get(4)).isEqualTo("value-4");
 
         assertThat(training.get(100_00)).isEqualTo(null);
     }

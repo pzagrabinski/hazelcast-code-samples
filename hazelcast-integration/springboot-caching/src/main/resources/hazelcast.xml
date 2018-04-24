@@ -34,5 +34,10 @@
         </join>
     </network>
 
+    <map name="training">
+        <map-store enabled="true">
+            <class-name>com.hazelcast.springboot.caching.mapstore.DummyMapStore</class-name>
+        </map-store>
+    </map>
 
 </hazelcast>
