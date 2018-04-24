@@ -28,7 +28,6 @@ public class TrainingDataSetTest extends IntegrationBaseTest {
         assertThat(training.get(100_00)).isEqualTo(null);
     }
 
-    @Ignore
     @Test
     public void shouldGetElementsFromTrainingSetForInjectedViaIMap() {
         //given
