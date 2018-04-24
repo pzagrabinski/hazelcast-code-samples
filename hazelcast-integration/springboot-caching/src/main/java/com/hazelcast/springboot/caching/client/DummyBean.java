@@ -18,13 +18,17 @@
 
 package com.hazelcast.springboot.caching.client;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.TimeUnit;
 
 public class DummyBean implements IDummyBean {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DummyBean.class);
 
     @Override
     public String getCity() {
-        System.out.println("DummyBean.getCity() called!");
+        LOGGER.info("DummyBean.getCity() called!");
         try {
             // emulation of slow method
             TimeUnit.SECONDS.sleep(5);
