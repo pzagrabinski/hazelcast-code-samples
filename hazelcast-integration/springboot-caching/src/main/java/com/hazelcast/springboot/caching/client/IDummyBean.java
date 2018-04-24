@@ -18,9 +18,11 @@
 
 package com.hazelcast.springboot.caching.client;
 
+import org.springframework.cache.annotation.Cacheable;
 
 public interface IDummyBean {
 
+    @Cacheable("city")
     String getCity();
 
     String setCity(String city);
