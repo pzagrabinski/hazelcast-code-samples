@@ -36,7 +36,7 @@ public class CityController {
         return city;
     }
 
-    @RequestMapping(value = "city/{city}", method = RequestMethod.GET)
+    @RequestMapping(value = "city/{city}", method = RequestMethod.POST)
     public String setCity(@PathVariable String city) {
         return dummy.setCity(city);
     }
