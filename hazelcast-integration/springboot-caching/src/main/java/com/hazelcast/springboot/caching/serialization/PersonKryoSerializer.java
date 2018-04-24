@@ -36,10 +36,8 @@ public class PersonKryoSerializer implements StreamSerializer<Person> {
     }
 
     public Person read(ObjectDataInput objectDataInput) throws IOException {
-        InputStream in = (InputStream) objectDataInput;
-        Input input = new Input(in);
-        Kryo kryo = KRYO_THREAD_LOCAL.get();
-        return kryo.readObject(input, Person.class);
+        return null;
+        //todo implement read
     }
 
     public void destroy() {

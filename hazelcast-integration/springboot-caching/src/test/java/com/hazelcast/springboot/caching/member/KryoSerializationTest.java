@@ -16,8 +16,6 @@ public class KryoSerializationTest extends IntegrationBaseTest {
     @Autowired
     HazelcastInstance hazelcastInstance;
 
-
-    @Ignore
     @Test
     public void shouldSerializeAndDeserializeUsingKryo() {
         //given

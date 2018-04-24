@@ -21,6 +21,7 @@ public class CachePopulator {
         map.put(1, "Tom");
         map.put(2, "Jim");
 
-
+        IMap<String, Person> persons = client.getMap("persons");
+        persons.put("Michael", new Person("Michael"));
     }
 }
