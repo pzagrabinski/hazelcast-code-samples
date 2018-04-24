@@ -29,15 +29,8 @@
 
     <network>
         <cluster-members>
-            <address>127.0.0.1</address>
+            <address><!-- todo put cluster address here --></address>
         </cluster-members>
     </network>
 
-    <serialization>
-        <serializers>
-            <serializer type-class="com.hazelcast.springboot.caching.serialization.Person"
-                        class-name="com.hazelcast.springboot.caching.serialization.PersonKryoSerializer"/>
-
-        </serializers>
-    </serialization>
 </hazelcast-client>

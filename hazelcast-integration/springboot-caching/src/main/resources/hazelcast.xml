@@ -23,14 +23,6 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 
-    <serialization>
-        <serializers>
-            <serializer type-class="com.hazelcast.springboot.caching.serialization.Person"
-                        class-name="com.hazelcast.springboot.caching.serialization.PersonKryoSerializer"/>
-
-        </serializers>
-    </serialization>
-
     <group>
         <name>bootifulcluster</name>
         <password>bootiful-pass</password>
@@ -42,11 +34,5 @@
         </join>
     </network>
 
-
-    <map name="training">
-        <map-store enabled="true">
-            <class-name>com.hazelcast.springboot.caching.mapstore.DummyMapStore</class-name>
-        </map-store>
-    </map>
 
 </hazelcast>

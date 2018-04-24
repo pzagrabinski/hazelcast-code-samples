@@ -4,6 +4,7 @@ package com.hazelcast.springboot.caching.member;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.springboot.caching.serialization.Person;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,7 @@ public class KryoSerializationTest extends IntegrationBaseTest {
     HazelcastInstance hazelcastInstance;
 
 
+    @Ignore
     @Test
     public void shouldSerializeAndDeserializeUsingKryo() {
         //given

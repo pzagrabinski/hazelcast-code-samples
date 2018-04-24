@@ -3,6 +3,7 @@ package com.hazelcast.springboot.caching.member;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,6 +15,7 @@ public class TrainingDataSetTest extends IntegrationBaseTest {
     @Autowired
     HazelcastInstance hazelcastInstance;
 
+    @Ignore
     @Test
     public void shouldGetElementsFromTrainingSetForInjectedViaIMap() {
         //given
@@ -26,6 +28,7 @@ public class TrainingDataSetTest extends IntegrationBaseTest {
         assertThat(training.get(100_00)).isEqualTo(null);
     }
 
+    @Ignore
     @Test
     public void shouldGetElementsFromDBColdStart() {
         //given
