@@ -18,8 +18,6 @@
 
 package com.hazelcast.springboot.caching.member;
 
-import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.core.HazelcastInstance;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration;
@@ -27,12 +25,7 @@ import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cache.annotation.EnableCaching;
 
-/**
- * Hazelcast member initialized by Spring Boot auto configuration
- *
- * @author Viktor Gamov on 12/26/15.
- *         Twitter: @gamussa
- */
+
 @SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.member")
 @EnableCaching
 @EnableAutoConfiguration(exclude = {EmbeddedServletContainerAutoConfiguration.class, WebMvcAutoConfiguration.class})

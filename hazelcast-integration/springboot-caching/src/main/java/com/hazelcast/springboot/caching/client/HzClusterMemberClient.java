@@ -30,12 +30,6 @@ import org.springframework.cache.interceptor.SimpleKeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
-/**
- * Hazelcast Client initialized by Spring Boot auto configuration
- *
- * @author Viktor Gamov on 12/26/15.
- * Twitter: @gamussa
- */
 @SpringBootApplication(scanBasePackages = "com.hazelcast.springboot.caching.client")
 @EnableCaching
 @SuppressWarnings("unused")
