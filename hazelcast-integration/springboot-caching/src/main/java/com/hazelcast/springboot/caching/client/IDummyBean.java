@@ -18,8 +18,6 @@
 
 package com.hazelcast.springboot.caching.client;
 
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 
 public interface IDummyBean {
 
