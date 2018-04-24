@@ -60,8 +60,6 @@ public class HzClusterMemberClient {
     @Bean
     @Profile("client")
     HazelcastInstance hazelcastInstance() {
-        // for client HazelcastInstance LocalMapStatistics will not available
         return HazelcastClient.newHazelcastClient();
-        // return Hazelcast.newHazelcastInstance();
     }
 }
